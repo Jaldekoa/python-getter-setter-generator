@@ -67,18 +67,18 @@ function generateGetterSetterMethods(pythonCode) {
         // eslint-disable-next-line no-unused-vars
         const [attribute, value] = line.split('=').map((str) => str.trim());
         const attributeName = attribute.split('.')[1];
-		
-		if (attributeName.startsWith('_')) {
+  
+		if (attributeName.startsWith('__')) {
 			const getterMethod = `
     @property
-    def ${attributeName.slice(1)}(self):
+    def ${attributeName.slice(2)}(self):
         return self.${attributeName}
 `;
 		generatedCode += getterMethod;
 
 		const setterMethod = `
-    @${attributeName.slice(1)}.setter
-    def ${attributeName.slice(1)}(self, value):
+    @${attributeName.slice(2)}.setter
+    def ${attributeName.slice(2)}(self, value):
         self.${attributeName} = value
 `;
 		generatedCode += setterMethod;
