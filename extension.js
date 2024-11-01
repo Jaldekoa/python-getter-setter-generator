@@ -78,8 +78,8 @@ function generateGetterSetterMethods(pythonCode) {
 
 		const setterMethod = `
     @${attributeName.slice(2)}.setter
-    def ${attributeName.slice(2)}(self, value):
-        self.${attributeName} = value
+    def ${attributeName.slice(2)}(self, ${value}):
+        self.${attributeName} = ${value}
 `;
 		generatedCode += setterMethod;
 
@@ -91,8 +91,8 @@ function generateGetterSetterMethods(pythonCode) {
 		generatedCode += getterMethod;
 
 		const setterMethod = `
-    def set_${attributeName}(self, value):
-        self.${attributeName} = value
+    def set_${attributeName}(self, ${value}):
+        self.${attributeName} = ${value}
 `;
 		generatedCode += setterMethod;
 		  }
